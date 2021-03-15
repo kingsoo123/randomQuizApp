@@ -5,71 +5,107 @@ import Button from "../Button";
 import warning from "../../assets/warning.png";
 
 const MainPage = () => {
-  const [programming, SetProgramming] = useState('');
-  const [misc, setMisc] = useState('')
-  const [dark, setDark] = useState('')
-  const [spooky, setSpooky] = useState('')
-  const [christmas, SetChristmas] = useState('')
-  const [pun, setPun] = useState('')
-  //const [param, setParam] = useState([])
+  const [programming, SetProgramming] = useState("");
+  const [misc, setMisc] = useState("");
+  const [dark, setDark] = useState("");
+  const [spooky, setSpooky] = useState("");
+  const [christmas, SetChristmas] = useState("");
+  const [pun, setPun] = useState("");
+  const [param, setParam] = useState([])
 
   const [jokes, setJokes] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
-  //console.log(jokes);
+  
+  console.log(param);
 
-  let parameters = []
-  parameters.push(dark, programming, pun, spooky, christmas, misc)
-
-  //console.log(parameters);
-  let newParam = parameters.join(',')
-  console.log(newParam);
-
-
-  const handleSpooky = (e) => {
+const handleSpooky = (e) => {
     const isSpooky = e.target.checked;
     if (isSpooky === true) {
-      setSpooky("Spooky");
-    }
+      setParam(param.concat("Spooky"));
+    }else if(isSpooky === false){
+      for( var i = 0; i < param.length; i++){ 
+        if ( param[i] === "Spooky") { 
+           param.splice(i, 1); 
+        }   
+    }    }
   };
 
   const handleMisc = (e) => {
     const isMisc = e.target.checked;
     if (isMisc === true) {
-      setMisc("Misc");
-    }
+      setParam(param.concat("Misc"));
+    }else if(isMisc === false){
+      for( var i = 0; i < param.length; i++){ 
+        if ( param[i] === "Misc") { 
+           param.splice(i, 1); 
+        }   
+    }    }
   };
 
   const handleProgramming = (e) => {
     const isProgramming = e.target.checked;
     if (isProgramming === true) {
-      SetProgramming("Programming");
-    }
+      setParam(param.concat("Programming"));
+    }else if(isProgramming === false){
+      for( var i = 0; i < param.length; i++){ 
+        if ( param[i] === "Programming") { 
+           param.splice(i, 1); 
+        }   
+    }    }
   };
 
   const handleChristmas = (e) => {
     const isChristmas = e.target.checked;
     if (isChristmas === true) {
-      SetChristmas("Christmas");
-    }
+      setParam(param.concat("Christmas"));
+
+    }else if(isChristmas === false){
+      for( var i = 0; i < param.length; i++){ 
+        if ( param[i] === "Christmas") { 
+           param.splice(i, 1); 
+        }   
+    }    }
   };
   const handleDark = (e) => {
     const isDark = e.target.checked;
     if (isDark === true) {
-      setDark("Dark");
-    }
+      setParam(param.concat("Dark"));
+
+    }else if(isDark === false){
+      for( var i = 0; i < param.length; i++){ 
+        if ( param[i] === "Dark") { 
+           param.splice(i, 1); 
+        }   
+    }    }
   };
 
   const handlePun = (e) => {
     const isPun = e.target.checked;
     if (isPun === true) {
-      setPun("Pun");
+      setParam(param.concat("Pun"));
+
+    }else if(isPun === false){
+      for( var i = 0; i < param.length; i++){ 
+        if ( param[i] === "Pun") { 
+           param.splice(i, 1); 
+        }   
+    }
     }
   };
 
+  
+ 
 
-  const randomizeJoke = () => {
+
+  const randomizeJoke = () => { 
+    let urlParams;
+  if(param.length === 0){
+    urlParams = 'Any'
+  }else{
+    urlParams = param.toString()
+  }
     fetch(
-      `https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single&idRange=0-300&amount=10`
+      `https://v2.jokeapi.dev/joke/${urlParams}?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single&idRange=0-300&amount=10`
     )
       .then((response) => response.json())
       .then((data) => {
