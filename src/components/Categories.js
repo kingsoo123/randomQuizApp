@@ -1,8 +1,9 @@
 import React, {useState} from "react";
 import Loader from "react-loader-spinner";
+import { useHistory } from "react-router-dom";
 
 const Categories = ({jokes}) => {
-const [loading, setLoading] = useState('Jokes Loading')
+let history = useHistory();
 
 const jokeComponent = jokes.map((joke, i)=>{
     return(
@@ -12,7 +13,7 @@ const jokeComponent = jokes.map((joke, i)=>{
           <p className="card-text">
           {joke.joke} 
           </p>
-          <button className="btn btn-outline-primary">View Joke</button>
+          <button className="btn btn-outline-primary" onClick={()=>{history.push(`/secondary/${joke.category}`)}}>View Joke</button>
         </div>
       </div>
     )

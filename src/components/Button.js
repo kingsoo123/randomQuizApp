@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Button = ({randomizeJoke})=>{
+const Button = ({randomizeJoke, name})=>{
     return(
-        <button className="btn btn-primary" onClick={randomizeJoke}>View Random Jokes</button>
+        <button className="btn btn-primary" onClick={randomizeJoke}>Randomize {name} Jokes</button>
 
     )
 }

@@ -1,19 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Categories from "../Categories";
-//import { ApiTrigger } from "../../service";
 import Button from "../Button";
 import warning from "../../assets/warning.png";
 
 const MainPage = () => {
-  const [programming, SetProgramming] = useState("");
-  const [misc, setMisc] = useState("");
-  const [dark, setDark] = useState("");
-  const [spooky, setSpooky] = useState("");
-  const [christmas, SetChristmas] = useState("");
-  const [pun, setPun] = useState("");
   const [param, setParam] = useState([])
 
-  const [jokes, setJokes] = useState([]);
+  const [jokes, setJokes] = useState(["No matching Joke found"]);
   const [errorMessage, setErrorMessage] = useState("");
   
   console.log(param);
@@ -109,7 +102,7 @@ const handleSpooky = (e) => {
     )
       .then((response) => response.json())
       .then((data) => {
-        setJokes(data.jokes);
+        setJokes(data.jokes.sort( () => .5 - Math.random() ));
         setErrorMessage(data.error);
       })
       .catch((error) => console.log(error));
@@ -143,8 +136,7 @@ const handleSpooky = (e) => {
             Programming
           </label>
         </div>
-      </div>
-      <div className="d-flex justify-content-center">
+
         <div className="form-check">
           <input
             className="form-check-input"
@@ -157,8 +149,8 @@ const handleSpooky = (e) => {
             Misc
           </label>
         </div>
-      </div>
-      <div className="d-flex justify-content-center">
+        
+
         <div className="form-check">
           <input
             className="form-check-input"
@@ -171,8 +163,7 @@ const handleSpooky = (e) => {
             Spooky
           </label>
         </div>
-      </div>
-      <div className="d-flex justify-content-center">
+
         <div className="form-check">
           <input
             className="form-check-input"
@@ -185,8 +176,7 @@ const handleSpooky = (e) => {
             Dark
           </label>
         </div>
-      </div>
-      <div className="d-flex justify-content-center">
+
         <div className="form-check">
           <input
             className="form-check-input"
@@ -199,8 +189,8 @@ const handleSpooky = (e) => {
             Christmas
           </label>
         </div>
-      </div>{" "}
-      <div className="d-flex justify-content-center">
+
+
         <div className="form-check">
           <input
             className="form-check-input"
@@ -214,6 +204,7 @@ const handleSpooky = (e) => {
           </label>
         </div>
       </div>
+ 
       <div className="d-flex justify-content-center p-4">
         <Button randomizeJoke={randomizeJoke} />
       </div>
