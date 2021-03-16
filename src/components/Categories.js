@@ -9,11 +9,11 @@ const jokeComponent = jokes.map((joke, i)=>{
     return(
        <div className="card mt-2" style={{width: "18rem"}} key={i}>
         <div className="card-body">
-          <h5 className="card-title"> {joke.category} Category</h5>
+          <h5 className="card-title"> {joke?.category} Category</h5>
           <p className="card-text">
-          {joke.joke} 
+          {joke?.joke} 
           </p>
-          <button className="btn btn-outline-primary" onClick={()=>{history.push(`/secondary/${joke.category}`)}}>View Joke</button>
+          <button className="btn btn-outline-primary" onClick={()=>{history.push(`/secondary/${joke?.category}`)}}>View Joke</button>
         </div>
       </div>
     )

@@ -102,7 +102,7 @@ const handleSpooky = (e) => {
     )
       .then((response) => response.json())
       .then((data) => {
-        setJokes(data.jokes.sort( () => .5 - Math.random() ));
+        setJokes(data?.jokes.sort( () => .5 - Math.random() ));
         setErrorMessage(data.error);
       })
       .catch((error) => console.log(error));
