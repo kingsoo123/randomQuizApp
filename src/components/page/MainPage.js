@@ -9,7 +9,6 @@ const MainPage = () => {
   const [jokes, setJokes] = useState(["No matching Joke found"]);
   const [errorMessage, setErrorMessage] = useState("");
   
-  console.log(param);
 
 const handleSpooky = (e) => {
     const isSpooky = e.target.checked;

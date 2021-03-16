@@ -5,7 +5,6 @@ import Button from "../Button";
 const Secondary = (props) => {
   const [category, setCategory] = useState("");
   const [jokes, setJokes] = useState(['No matching Joke found'])
-  console.log(jokes);
   useEffect(() => {
     setCategory(props?.match?.params?.category);
   }, []);
@@ -44,7 +43,7 @@ const Secondary = (props) => {
 
   const randomizeJoke = ()=>{
     fetch(
-      `https://v2.jokeapi.dev/joke/${props?.match?.params?.category}?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single&idRange=0-300&amount=10`
+      `https://v2.jokeapi.dev/joke/${props?.match?.params?.category}?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&idRange=0-300&amount=10`
     )
       .then((response) => response.json())
       .then((data) => {
