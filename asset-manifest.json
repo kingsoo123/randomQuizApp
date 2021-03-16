@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/randomQuizApp/static/css/main.1ba7bcde.chunk.css",
+    "main.js": "/randomQuizApp/static/js/main.851697d0.chunk.js",
+    "main.js.map": "/randomQuizApp/static/js/main.851697d0.chunk.js.map",
+    "runtime-main.js": "/randomQuizApp/static/js/runtime-main.adb85161.js",
+    "runtime-main.js.map": "/randomQuizApp/static/js/runtime-main.adb85161.js.map",
+    "static/js/2.535f6dda.chunk.js": "/randomQuizApp/static/js/2.535f6dda.chunk.js",
+    "static/js/2.535f6dda.chunk.js.map": "/randomQuizApp/static/js/2.535f6dda.chunk.js.map",
+    "static/js/3.a9a1d310.chunk.js": "/randomQuizApp/static/js/3.a9a1d310.chunk.js",
+    "static/js/3.a9a1d310.chunk.js.map": "/randomQuizApp/static/js/3.a9a1d310.chunk.js.map",
+    "index.html": "/randomQuizApp/index.html",
+    "static/css/main.1ba7bcde.chunk.css.map": "/randomQuizApp/static/css/main.1ba7bcde.chunk.css.map",
+    "static/js/2.535f6dda.chunk.js.LICENSE.txt": "/randomQuizApp/static/js/2.535f6dda.chunk.js.LICENSE.txt",
+    "static/media/warning.b6ac8207.png": "/randomQuizApp/static/media/warning.b6ac8207.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.adb85161.js",
+    "static/js/2.535f6dda.chunk.js",
+    "static/css/main.1ba7bcde.chunk.css",
+    "static/js/main.851697d0.chunk.js"
+  ]
+}
