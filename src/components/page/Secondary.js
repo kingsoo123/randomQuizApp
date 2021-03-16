@@ -20,20 +20,32 @@ const Secondary = (props) => {
       .catch((error) => console.log(error));
   },[])
 
+  console.log(jokes);
+
   const secPageJokes = jokes.map((joke, i)=>{
     return(
       <div key={i}>
 
       <div class="card">
         <div class="card-header">Type: {joke?.type}</div>
-        <div class="card-body">
+       {joke?.type === 'single'? <div class="card-body">
           <p class="card-text">
          {joke?.joke}
           </p>
           <a href="#" class="btn btn-outline-primary">
            {joke?.lang ? 'English' : null}
           </a>
-        </div>
+        </div> : <div class="card-body">
+          <p class="card-text">
+         {joke?.setup}
+          </p>
+          <p class="card-text">
+         Delivery: {joke?.delivery}
+          </p>
+          <a href="#" class="btn btn-outline-primary">
+           {joke?.lang ? 'English' : null}
+          </a>
+        </div>}
       </div>
 
       </div>
